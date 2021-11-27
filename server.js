@@ -4,7 +4,7 @@ let express = require("express"); //loaded express, provide file
 
 let app = express(); //activate express
 
-let port = 3000; //define port number
+let port = process.env.PORT || 3000; //define port number
 
 let server = app.listen(port); // the connection will happen in the port 3000
 
@@ -21,7 +21,7 @@ io.on("connection", newConnection);
 function newConnection(newSocket) {
   console.log(newSocket.id);
 
-  newSocket.on("mouse", mouseMessage);
+  newSocket.on("mouse", mouseMessage); //new socket receiv a new mouse movement
 
   function mouseMessage(dataReceived) {
     console.log(dataReceived);
