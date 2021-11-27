@@ -1,14 +1,8 @@
-let myImage;
-
 let clientSocket = io(); //activate socket on server side
 
 clientSocket.on("connect", newConnection);
 
 clientSocket.on("mouseBroadcast", newBroadcast);
-
-function preload() {
-  myImage = loadImage("./assets/Risorsa 2.png"); // percorso per trovare file
-}
 
 function newConnection() {
   console.log(clientSocket.id);
@@ -23,12 +17,7 @@ function newBroadcast(data) {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  imageMode(CENTER); // posiziona dal centro dell'immagine
-  image(
-    myImage,
-    width / 2, //posizione dell'immagine al centro
-    height / 2
-  );
+  background("black");
 }
 
 function draw() {
